@@ -3,5 +3,7 @@ main {
 }
 
 form {
-    padding: 0 200px 0 200px;
+    margin: 0 200px 0 200px;
+    padding: 50px;
+    box-shadow: 0 1px 8px -2px black;
 }
