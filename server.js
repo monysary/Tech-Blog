@@ -14,9 +14,11 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers'))
 
+// Setting up express middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// App listening on PORT
 sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => console.log(`Application listening at http://localhost:${PORT}`));
 });
