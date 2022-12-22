@@ -1,8 +1,28 @@
 const router = require('express').Router();
+const { BlogEntry, User } = require('../models')
 
-// Render homepage
-router.get('/', (req, res) => {
-    res.render('homepage')
+// Render homepage with all blog posts
+router.get('/', async (req, res) => {
+    try {
+        const blogData = await BlogEntry.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
+        
+        const allBlogData = blogData.map((blog) => 
+            blog.get({ plain: true })
+        );
+
+        res.render('homepage', { allBlogData });
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 // Render login page
