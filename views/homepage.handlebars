@@ -1,3 +1,5 @@
-{{#each allBlogData as |blog_entry|}}
-{{> blog-entry}}
-{{/each}}
+{{#if loggedIn}}
+    {{#each allBlogData as |blog_entry|}}
+    {{> blog-entry}}
+    {{/each}}
+{{/if}}

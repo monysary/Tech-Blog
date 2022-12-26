@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { BlogEntry, User } = require('../models')
 
-// Render homepage with all blog posts
+// Render homepage
 router.get('/', async (req, res) => {
     try {
         const blogData = await BlogEntry.findAll({
@@ -27,12 +27,12 @@ router.get('/', async (req, res) => {
 
 // Render login page
 router.get('/login', (req, res) => {
-    res.render('login', { loggedIn: req.session.loggedIn })
+    res.render('login')
 })
 
 // Render signup page
 router.get('/signup', (req, res) => {
-    res.render('signup', { loggedIn: req.session.loggedIn })
+    res.render('signup')
 })
 
 module.exports = router;
