@@ -15,15 +15,19 @@
     <header>
         <nav class="py-2 bg-light border-bottom">
             <div class="container d-flex flex-wrap">
+                {{#if loggedIn}}
                 <ul class="nav me-auto">
                     <li class="nav-item"><a href="/" class="nav-link link-dark px-2">Home</a></li>
                     <li class="nav-item"><a href="" class="nav-link link-dark px-2">Dashboard</a></li>
                 </ul>
-                {{#if loggedIn}}
                 <ul class="nav">
                     <li class="nav-item nav-link link-dark px-2" id="logout-btn">Logout</li>
                 </ul>
                 {{else}}
+                <ul class="nav me-auto">
+                    <li class="nav-item"><a href="/" class="nav-link link-dark px-2">Home</a></li>
+                    <li class="nav-item"><a href="/login" class="nav-link link-dark px-2">Dashboard</a></li>
+                </ul>
                 <ul class="nav">
                     <li class="nav-item"><a href="/login" class="nav-link link-dark px-2">Login</a></li>
                     <li class="nav-item"><a href="/signup" class="nav-link link-dark px-2">Sign up</a></li>

@@ -14,7 +14,6 @@ const loginForm = async (event) => {
 
         if (response.ok) {
             document.location.replace('/')
-            alert('Login successful!')
         } else if (response.status === 400) {
             alert('Incorrect email or password, please try again!')
         } else {
