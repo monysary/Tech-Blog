@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
             blog.get({ plain: true })
         );
 
-        res.render('homepage', { allBlogData });
+        res.render('homepage', { allBlogData, loggedIn: req.session.loggedIn });
 
     } catch (err) {
         console.log(err);
@@ -27,12 +27,12 @@ router.get('/', async (req, res) => {
 
 // Render login page
 router.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login', { loggedIn: req.session.loggedIn })
 })
 
 // Render signup page
 router.get('/signup', (req, res) => {
-    res.render('signup')
+    res.render('signup', { loggedIn: req.session.loggedIn })
 })
 
 module.exports = router;

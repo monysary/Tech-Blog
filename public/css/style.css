@@ -7,3 +7,7 @@ form {
     padding: 50px;
     box-shadow: 0 1px 8px -2px rgb(27, 27, 27);
 }
+
+#logout-btn:hover {
+    cursor: pointer;
+}
