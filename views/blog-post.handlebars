@@ -1,0 +1,28 @@
+<section class="accordion py-3">
+    <div class="accordion p-3">
+        <h2 class="accordion-header" id="headingOne">
+            {{oneBlogData.title}}
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <strong>Posted by {{oneBlogData.user.username}} on {{format_date oneBlogData.createdAt}}</strong>
+                <p>
+                    {{oneBlogData.content}}
+                </p>
+            </div>
+        </div>
+        <div class="accordion p-3">
+            <h4>Comments:</h4>
+            <div class="accordion-body">
+                {{oneBlogData.comment.content}}
+            </div>
+                <div class="container-fluid">
+                    <form class="d-flex p-1 m-0">
+                        <input class="form-control me-2" type="text" placeholder="Add new comment">
+                        <button class="btn btn-outline-success" type="submit">Post</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+</section>

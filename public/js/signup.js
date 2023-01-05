@@ -19,6 +19,7 @@ const signUpForm = async (event) => {
 
         if (response.ok) {
             alert('New user sign up successful!')
+            document.location.replace('/');
         } else {
             alert('Sign up failed, please try again!')
         }

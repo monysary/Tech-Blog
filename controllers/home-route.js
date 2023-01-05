@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { BlogEntry, User } = require('../models')
+const { BlogEntry, User, Comment } = require('../models')
 
 // Render homepage
 router.get('/', async (req, res) => {
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
                     attributes: ['username']
                 }
             ]
-        })
+        });
         
         const allBlogData = blogData.map((blog) => 
             blog.get({ plain: true })
@@ -27,12 +27,31 @@ router.get('/', async (req, res) => {
 
 // Render login page
 router.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login');
 })
 
 // Render signup page
 router.get('/signup', (req, res) => {
-    res.render('signup')
+    res.render('signup');
+})
+
+// Render specific post
+router.get('/posts/:id', async (req, res) => {
+    try {
+        const blogData = await BlogEntry.findByPk(req.params.id, {
+            include: [User, Comment]
+        });
+
+        if (blogData) {
+            const oneBlogData = blogData.get({ plain: true });
+            res.render('blog-post', { oneBlogData });
+        } else {
+            res.status(404).end();
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 })
 
 module.exports = router;
