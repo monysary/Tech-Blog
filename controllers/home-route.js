@@ -50,7 +50,7 @@ router.get('/posts/:id', async (req, res) => {
 
         if (blogData) {
             const oneBlogData = blogData.get({ plain: true });
-            res.render('blog-post', { oneBlogData });
+            res.render('blog-post', { oneBlogData, loggedIn: req.session.loggedIn });
         } else {
             res.status(404).end();
         }

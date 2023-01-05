@@ -19,9 +19,9 @@
                 {{oneBlogData.comment.content}}
             </div>
             <div class="container-fluid p-0">
-                <form class="d-flex p-1 m-0">
-                    <input class="form-control me-2" type="text" placeholder="Add new comment">
-                    <button class="btn btn-outline-success" type="submit">Post</button>
+                <form class="d-flex p-1 m-0" id="comment-form">
+                    <input id="comment-text" class="form-control me-2" type="text" placeholder="Add new comment">
+                    <button class="btn btn-outline-success" type="submit" id="blog-id" value='{{oneBlogData.id}}'>Post</button>
                 </form>
             </div>
             <div class="card">
@@ -34,3 +34,5 @@
         </div>
     </div>
 </section>
+
+<script src="/js/commenting.js"></script>
