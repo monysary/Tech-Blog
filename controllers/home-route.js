@@ -39,7 +39,13 @@ router.get('/signup', (req, res) => {
 router.get('/posts/:id', async (req, res) => {
     try {
         const blogData = await BlogEntry.findByPk(req.params.id, {
-            include: [User, Comment]
+            include: [
+                User, 
+                {
+                    model: Comment,
+                    include: [User]
+                }
+            ]
         });
 
         if (blogData) {

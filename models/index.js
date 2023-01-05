@@ -7,7 +7,7 @@ User.hasMany(BlogEntry, {
 });
 
 User.hasMany(Comment, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_comment_id'
 })
 
 BlogEntry.belongsTo(User, {
@@ -23,7 +23,7 @@ Comment.belongsTo(BlogEntry, {
 });
 
 Comment.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_comment_id'
 })
 
 

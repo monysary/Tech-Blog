@@ -9,7 +9,7 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        user_id: {
+        user_comment_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
