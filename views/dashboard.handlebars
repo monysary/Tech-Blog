@@ -1,0 +1,17 @@
+{{#if loggedIn}}
+    <h3>Create new blog</h3>
+    <div class="mb-3">
+        <label for="new-blog-title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="new-blog-title" placeholder="New Blog Title">
+    </div>
+    <form class="mb-3" style="margin: 0 0 16px 0; padding: 0; box-shadow: none">
+        <label for="new-blog-content" class="form-label">Content</label>
+        <input class="form-control" id="new-blog-content" rows="3"></input>
+        <button class="btn btn-outline-success mt-2" type="submit" id="new-blog">Post New Blog</button>
+    </form>
+    <hr>
+    <h3>My Blogs</h3>
+    {{#each userBlog as |blog|}}
+        {{> blog-entry}}
+    {{/each}}
+{{/if}}
