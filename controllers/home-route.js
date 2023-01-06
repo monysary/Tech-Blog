@@ -83,4 +83,14 @@ router.get('/dashboard', async (req, res) => {
     }
 })
 
+// Editing a post page
+router.get('/dashboard/edit', async (req, res) => {
+    try {
+        res.render('update-blog', { loggedIn: req.session.loggedIn })
+    } catch (err) {
+        console.log(err);
+        res.status(404),json();
+    }
+})
+
 module.exports = router;

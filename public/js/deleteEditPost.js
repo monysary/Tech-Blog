@@ -9,5 +9,10 @@ const deletePost = async () => {
     window.location.replace('/dashboard')
 }
 
+// Updating your post
+const updatePost = async () => {
+    await fetch()
+}
+
 document.querySelector('#delete-btn')
     .addEventListener('click', deletePost);
