@@ -4,7 +4,7 @@ const sequelize = require('./config/connection');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const session = require('express-session');
-const helpers = require('./utils/helpers')
+const helpers = require('./utils/helpers');
 
 const hbs = exphbs.create({ helpers })
 const app = express();
@@ -18,9 +18,10 @@ app.set('view engine', 'handlebars');
 const sess = {
     secret: 'the secret string',
     resave: false,
-    saveUninitialized: false,
-    cookie: { secure: true },
-    maxAge: 60 * 60 * 1000
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 60 * 60 * 1000
+    }
 };
 app.use(session(sess));
 

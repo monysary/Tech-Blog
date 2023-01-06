@@ -1,5 +1,7 @@
 {{#if loggedIn}}
-    <h3>Create new blog</h3>
+    <h2 class="mb-3 text-center">My Dashboard</h2>
+    <hr>
+    <h4>Create new blog</h4>
     <div class="mb-3">
         <label for="new-blog-title" class="form-label">Title</label>
         <input type="text" class="form-control" id="new-blog-title" placeholder="New Blog Title">
@@ -10,7 +12,7 @@
         <button class="btn btn-outline-success mt-2" type="submit" id="new-blog">Post New Blog</button>
     </form>
     <hr>
-    <h3>My Blogs</h3>
+    <h4>My Blogs</h4>
     {{#each userBlog as |blog|}}
         {{> blog-entry}}
     {{/each}}

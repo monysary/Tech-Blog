@@ -50,7 +50,9 @@ router.get('/posts/:id', async (req, res) => {
 
         if (blogData) {
             const oneBlogData = blogData.get({ plain: true });
-            res.render('blog-post', { oneBlogData, loggedIn: req.session.loggedIn });
+            const isUser = req.session.userID == oneBlogData.user.id
+
+            res.render('blog-post', { oneBlogData, isUser, loggedIn: req.session.loggedIn });
         } else {
             res.status(404).end();
         }
