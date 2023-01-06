@@ -17,4 +17,20 @@ router.post('/post', async (req, res) => {
     }
 });
 
+// Deleting a blog route
+router.delete('/delete/:id', async (req,res) => {
+    try {
+        BlogEntry.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+
+        res.status(200).json()
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
 module.exports = router;
