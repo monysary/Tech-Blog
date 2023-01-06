@@ -18,7 +18,9 @@ app.set('view engine', 'handlebars');
 const sess = {
     secret: 'the secret string',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: { secure: true },
+    maxAge: 60 * 60 * 1000
 };
 app.use(session(sess));
 
