@@ -6,7 +6,7 @@
     </div>
     <form class="mb-3" style="margin: 0 0 16px 0; padding: 0; box-shadow: none">
         <label for="new-blog-content" class="form-label">Content</label>
-        <input class="form-control" id="new-blog-content" rows="3"></input>
+        <textarea class="form-control" id="new-blog-content" rows="3"></textarea>
         <button class="btn btn-outline-success mt-2" type="submit" id="new-blog">Post New Blog</button>
     </form>
     <hr>
@@ -15,3 +15,5 @@
         {{> blog-entry}}
     {{/each}}
 {{/if}}
+
+<script src="/js/blogPosting.js"></script>
