@@ -1,7 +1,7 @@
 {{#if isUser}}
 <div class="d-flex justify-content-center">
     <button id="delete-btn" type="button" class="btn btn-danger mx-2">Delete Post</button>
-    <a href="/dashboard/edit" class="text-reset text-decoration-none">
+    <a href="/dashboard/edit/{{oneBlogData.id}}" class="text-reset text-decoration-none">
         <button id="update-btn" type="button" class="btn btn-info mx-2">Update Post</button>
     </a>
 </div>
@@ -46,4 +46,4 @@
 </section>
 
 <script src="/js/commenting.js"></script>
-<script src="/js/deleteEditPost.js"></script>
+<script src="/js/deletePost.js"></script>

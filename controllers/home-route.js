@@ -84,9 +84,26 @@ router.get('/dashboard', async (req, res) => {
 })
 
 // Editing a post page
-router.get('/dashboard/edit', async (req, res) => {
+router.get('/dashboard/edit/:id', async (req, res) => {
     try {
-        res.render('update-blog', { loggedIn: req.session.loggedIn })
+        const blogData = await BlogEntry.findByPk(req.params.id, {
+            include: [
+                User, 
+                {
+                    model: Comment,
+                    include: [User]
+                }
+            ]
+        });
+
+        if (blogData) {
+            const oneBlogData = blogData.get({ plain: true });
+
+            res.render('update-blog', { oneBlogData, loggedIn: req.session.loggedIn })
+        } else {
+            res.status(404).end();
+        }
+
     } catch (err) {
         console.log(err);
         res.status(404),json();

@@ -18,7 +18,7 @@ router.post('/post', async (req, res) => {
 });
 
 // Deleting a blog route
-router.delete('/delete/:id', async (req,res) => {
+router.delete('/delete/:id', async (req, res) => {
     try {
         BlogEntry.destroy({
             where: {
@@ -30,6 +30,28 @@ router.delete('/delete/:id', async (req,res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
+    }
+})
+
+// Updating a blog route
+router.put('/update/:id', async (req, res) => {
+    try {
+        BlogEntry.update(
+            {
+                title: req.body.updateBlogTitle,
+                content: req.body.updateBlogContent,
+                user_id: req.session.userID
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            }
+        )
+        res.status(200).json()
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err)
     }
 })
 
