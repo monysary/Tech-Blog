@@ -29,5 +29,8 @@
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.3",
     "sequelize": "^6.28.0"
+  },
+  "production": {
+    "use_env_variable": "DB_NAME"
   }
 }
