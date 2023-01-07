@@ -15,14 +15,31 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Setting up sessions
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+// const sess = {
+//     secret: 'the secret string',
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//         maxAge: 60 * 60 * 1000
+//     }
+// };
 const sess = {
-    secret: 'the secret string',
+    secret: 'Super secret secret',
+    cookie: {
+      maxAge: 300000,
+      httpOnly: true,
+      secure: false,
+      sameSite: 'strict',
+    },
     resave: false,
     saveUninitialized: true,
-    cookie: {
-        maxAge: 60 * 60 * 1000
-    }
-};
+    store: new SequelizeStore({
+      db: sequelize
+    })
+  };
+
 app.use(session(sess));
 
 // Setting up express middleware
