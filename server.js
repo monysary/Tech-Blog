@@ -16,15 +16,6 @@ app.set('view engine', 'handlebars');
 
 // Setting up sessions
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-// const sess = {
-//     secret: 'the secret string',
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: {
-//         maxAge: 60 * 60 * 1000
-//     }
-// };
 const sess = {
     secret: 'Super secret secret',
     cookie: {
