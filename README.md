@@ -4,7 +4,7 @@
 The Tech Blog is a platform that allows users to create and post blogs about pretty much anything they want. Users are also able to comment on other user's blog posts.
 
 ## Installation
-The Tech Blog can be accessed at the following link: 
+The Tech Blog can be accessed at the following link: https://serene-dusk-33754.herokuapp.com/
 
 ## Usage
 When first launching visiting the site, the user will not be able to see any blog posts. Clicking on the dashboard will prompt the user to log in. The user must login or create an account in order to view all blog posts.
